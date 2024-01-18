@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title | safe }}
+{% endblock %}
+
+{% block body %}
+
+    {{ content | safe }}
+
+    <form action="{% url 'edit' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="title" value="{{ title }}">
+        <input type="submit" value="Edit" style="background-color: rgba(247, 81, 233, 0.329); font-size: medium;">
+    </form>
+{% endblock %}

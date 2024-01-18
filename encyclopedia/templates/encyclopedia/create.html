@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+
+    <center>
+        <h1 style="color:crimson">{{ error }}</h1>
+    </center> 
+
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <h5>Title:</h5>
+        <input type="text" name="title" placeholder="Title of the page">
+        <br><br>
+        <h5>Content:</h5>
+        <textarea placeholder="Content of the page" name="content"></textarea>
+        <br>
+        <input type="submit" value="Create" style="background-color: rgb(147, 200, 253); font-size: medium;">
+    </form>
+
+{% endblock %}
